@@ -1,0 +1,65 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url(imagens/297.jpg);
+
+}
+
+h1{
+    display: grid;
+    justify-content: center;
+
+}
+
+.Navegação {    
+    display: grid;
+    justify-content: end;
+    background-color:beige;
+
+}
+
+#Lista_horizontal {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    width: 400px;
+
+}
+
+.news {
+
+    display: grid;
+    grid-template-columns: repeat(3, 600px);
+    justify-content: space-evenly;
+}
+
+.Artigo {
+
+    background-color: antiquewhite;
+    font-family: "Edu AU VIC WA NT Guides", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.imagem_centro {
+
+    display:block;
+    margin: auto;
+}
+
+.historico {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 100px;
+
+
+}
+
+.autora_titulo {
+    display: grid;
+    justify-content: center;
+    background-color: antiquewhite;
+
+}

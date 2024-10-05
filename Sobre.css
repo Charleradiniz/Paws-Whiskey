@@ -1,0 +1,45 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url(imagens/297.jpg);
+
+}
+
+h1{
+    display: grid;
+    justify-content: center;
+
+}
+
+.Navegação {    
+    display: grid;
+    justify-content: end;
+    background-color:beige;
+
+}
+
+#Lista_horizontal {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    width: 400px;
+
+}
+
+.sobre {
+
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    margin: 0 auto; /* Centraliza a galeria na página */
+    border: 2px solid #000; /* Apenas para visualização */
+    background-color: antiquewhite;
+}
+
+.imagem_autora img{    
+    
+    display: block;
+    margin: auto;
+
+    
+}
