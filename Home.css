@@ -1,84 +1,136 @@
+/* Estilos gerais */
 body {
     font-family: 'Courier New', Courier, monospace;
     background-image: url(imagens/297.jpg);
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
     display: grid;
     justify-content: center;
+    margin: 20px 0;
 }
 
+/* Navegação */
 .Navegação {
     display: grid;
-    justify-content: end;
+    grid-template-columns: 1fr 2fr; /* Define a navegação com um layout de duas colunas */
     background-color: beige;
+    padding: 10px 20px;
+    align-items: center;
 }
 
 #Lista_horizontal {
-    display: inline-flex;
-    flex-direction: row;
+    display: grid;
+    grid-auto-flow: column; /* Cria um layout horizontal para o menu */
     justify-content: space-around;
     list-style-type: none;
-    width: 100%; /* Alterado para usar largura total */
+    margin: 0;
+    padding: 0;
 }
 
+/* Seção de notícias */
 .news {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Ajuste para colunas adaptáveis */
-    justify-content: space-evenly;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 20px; /* Espaço entre os artigos */
+    margin: 20px;
 }
 
 .Artigo {
     background-color: antiquewhite;
+    padding: 15px;
     font-family: "Edu AU VIC WA NT Guides", cursive;
-    font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
 }
 
+/* Imagem centralizada */
 .imagem_centro {
     display: block;
     margin: auto;
 }
 
+/* Histórico de artigos */
 .historico {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin: 20px;
 }
 
+/* Título da autora */
 .autora_titulo {
     display: grid;
     justify-content: center;
     background-color: antiquewhite;
+    padding: 15px;
 }
 
 /* Media Queries para telas menores */
-@media only screen and (max-width: 768px) {
-    body {
-        font-family: 'Courier New', Courier, monospace;
-        background-image: url(imagens/297.jpg);
-    }
-
+@media only screen and (max-width: 1024px) {
     .Navegação {
-        display: flex;
-        flex-direction: column;
-        background-color: beige;
-        justify-content: space-around;
+        grid-template-columns: 1fr; /* Coluna única em telas menores */
+        justify-content: center;
+        padding: 15px;
     }
 
     #Lista_horizontal {
-        display: flex;
-        flex-direction: column; /* Muda a direção para coluna em telas menores */
-        justify-content: space-around;
-        list-style-type: none;
-        width: 100%; /* Ajuste para usar largura total */
+        grid-auto-flow: row; /* Alinha o menu em formato vertical */
+        justify-content: center;
     }
 
     .news {
-        display: grid;
-        grid-template-columns: 1fr; /* Ajusta para 1 coluna em telas menores */
-        justify-content: space-evenly;
+        grid-template-columns: 1fr 1fr; /* 2 colunas de notícias */
+    }
+
+    .historico {
+        grid-template-columns: 1fr 1fr; /* Histórico com 2 colunas */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .Navegação {
+        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
+        justify-content: center;
+        padding: 10px;
+    }
+
+    #Lista_horizontal {
+        grid-template-columns: 1fr; /* Menu em formato de lista */
+        justify-content: center;
+    }
+
+    .news {
+        grid-template-columns: 1fr; /* 1 coluna de notícias */
+    }
+
+    .historico {
+        grid-template-columns: 1fr; /* Histórico com 1 coluna */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: 14px; /* Ajuste no tamanho de fonte */
+    }
+
+    .Navegação {
+        grid-template-columns: 1fr; /* Coluna única em telas bem pequenas */
+        justify-content: center;
+    }
+
+    #Lista_horizontal {
+        grid-template-columns: 1fr; /* Formato de lista em telas pequenas */
+        justify-content: center;
+    }
+
+    .news {
+        grid-template-columns: 1fr; /* 1 coluna para as notícias */
+    }
+
+    .historico {
+        grid-template-columns: 1fr; /* Histórico com 1 coluna */
     }
 }
