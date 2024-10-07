@@ -1,39 +1,74 @@
+/* Estilos gerais */
 body {
     font-family: 'Courier New', Courier, monospace;
     background-image: url(imagens/297.jpg);
-
+    margin: 0;
+    padding: 0;
 }
 
-h1{
+
+h1 {
     display: grid;
     justify-content: center;
-
+    margin: 20px 0;
 }
 
-.Navegação {    
+/* Navegação */
+.Navegação {
     display: grid;
-    justify-content: end;
-    background-color:beige;
-
+    grid-template-rows: 1fr;
+    background-color: beige;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: start;
 }
 
+/* Menu horizontal */
 #Lista_horizontal {
-    display: inline-flex;
-    flex-direction: row;
+    display: grid;
+    grid-auto-flow: column;
     justify-content: space-around;
+    gap: 100px;
     list-style-type: none;
-    width: 400px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
 
+#Lista_horizontal li {
+    display: block;
+    margin: 5px 0;
+    width: 100%;
+    font-weight: bold;
+}
+
+#Lista_horizontal a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+#Lista_horizontal a:hover {
+    background-color: #ddd;
+    cursor: pointer;
 }
 
 .sobre {
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto;
     padding: 50px;
     margin: 0 auto; /* Centraliza a galeria na página */
     border: 2px solid #000; /* Apenas para visualização */
     background-color: antiquewhite;
+    width: 90%;
 }
 
 .imagem_autora img{    
@@ -42,4 +77,44 @@ h1{
     margin: auto;
 
     
+}
+
+
+
+/* Media Queries para telas menores */
+@media only screen and (max-width: 1024px) {
+    
+    .Navegação {
+        grid-template-columns: 1fr;
+        justify-content: start;
+        align-items: start;
+        padding: 15px;
+    }
+
+    #Lista_horizontal {
+        grid-auto-flow: column;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .sobre {
+
+        display: grid;
+        grid-template-columns: auto;
+        padding: 50px;
+        margin: 0 auto; /* Centraliza a galeria na página */
+        border: 2px solid #000; /* Apenas para visualização */
+        background-color: antiquewhite;
+        width: 80%;
+    }
+
+    .imagem_autora img{    
+    
+        display: block;
+        margin: auto;
+    
+        
+    }
 }
