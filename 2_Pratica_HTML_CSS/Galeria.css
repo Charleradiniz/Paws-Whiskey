@@ -1,45 +1,118 @@
+/* Estilos gerais */
 body {
     font-family: 'Courier New', Courier, monospace;
     background-image: url(imagens/297.jpg);
-
+    margin: 0;
+    padding: 0;
 }
 
-h1{
+h1 {
     display: grid;
     justify-content: center;
-
+    margin: 20px 0;
 }
 
-.Navegação {    
+/* Navegação */
+.Navegação {
     display: grid;
-    justify-content: end;
-    background-color:beige;
-
+    grid-template-rows: 1fr;
+    background-color: beige;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: start;
 }
 
+/* Menu horizontal */
 #Lista_horizontal {
-    display: inline-flex;
-    flex-direction: row;
+    display: grid;
+    grid-auto-flow: column;
     justify-content: space-around;
+    gap: 100px;
     list-style-type: none;
-    width: 400px;
-
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
-.fotos {
+#Lista_horizontal li {
+    display: block;
+    margin: 5px 0;
+    width: 100%;
+    font-weight: bold;
+}
 
+#Lista_horizontal a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+#Lista_horizontal a:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+/* Estilo da seção de fotos */
+.fotos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas com tamanhos iguais */
-    padding: 50px;
-    gap: 10px; /* Espaçamento entre as imagens */
-    width: 80%; /* Ajuste de largura para a galeria */
-    margin: 0 auto; /* Centraliza a galeria na página */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .margem {
-
     background-color: antiquewhite;
     padding: 50px;
     margin: 0 auto;
-    border: 2px, solid, black;
+    border: 2px solid black;
+    width: 70%;
+}
+
+/* Media Queries para telas menores */
+@media only screen and (max-width: 1024px) {
+    
+    .Navegação {
+        grid-template-columns: 1fr;
+        justify-content: start;
+        align-items: start;
+        padding: 15px;
+    }
+
+    #Lista_horizontal {
+        grid-auto-flow: column;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    /* Ajuste para a seção de fotos em telas menores */
+    .fotos {
+        display: grid;
+        grid-template-columns: 1fr; /* Muda para uma única coluna */
+        padding: 10px;
+        width: 90%;
+        height: 0 auto;
+        margin: 0 auto;
+        text-align: center; /* Alinha todo o conteúdo à esquerda */
+    }
+
+    .fotos img {
+        width: 80%; /* Garante que cada imagem ocupe 100% da coluna */
+        height: auto; /* Mantém a proporção da imagem */
+        padding: 30px;
+        background-color:antiquewhite;
+        justify-content: start;
+    }
+
 }
