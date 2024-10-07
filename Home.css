@@ -15,20 +15,48 @@ h1 {
 /* Navegação */
 .Navegação {
     display: grid;
-    grid-template-columns: 1fr 3fr; /* Define a navegação com um layout de duas colunas */
+    grid-template-rows: 1fr; /* Define a navegação com um layout de duas colunas */
     background-color: beige;
     padding: 10px 20px;
-    align-items:center;
-    justify-content: end;
+    align-items: center;
+    justify-content: start;
 }
 
+/* Menu horizontal */
 #Lista_horizontal {
-    display: grid;
-    grid-auto-flow: column; /* Cria um layout horizontal para o menu */
+    display: grid; /* Use grid para organizar a lista */
+    grid-auto-flow: column; /* Alinha o menu em formato vertical para telas menores */
     justify-content: space-around;
+    gap: 100px;
     list-style-type: none;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    width: 100%; /* Ocupa toda a largura do bloco pai */
+}
+
+#Lista_horizontal li {
+    display: block; /* Garante que cada item ocupe uma linha completa */
+    margin: 5px 0; /* Define o espaçamento entre os itens */
+    width: 100%; /* Ocupa toda a largura do bloco pai */
+    font-weight: bold; /* Aplica fonte em negrito */
+}
+
+#Lista_horizontal a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    display: block; /* O link ocupa toda a largura do item da lista */
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    transition: all 0.3s ease; /* Adiciona transição para efeitos hover */
+    width: 100%; /* O link ocupa 100% da largura */
+    text-align: center; /* Centraliza o texto dentro do botão */
+}
+
+#Lista_horizontal a:hover {
+    background-color: #ddd;
+    cursor: pointer;
 }
 
 /* Seção de notícias */
@@ -73,7 +101,6 @@ h1 {
 }
 
 .autora {
-
     display: grid;
     grid-template-rows: 1fr;
 }
@@ -82,34 +109,17 @@ h1 {
 @media only screen and (max-width: 1024px) {
     .Navegação {
         grid-template-columns: 1fr; /* Coluna única em telas menores */
-        justify-content: center;
+        justify-content: start;
+        align-items: start;
         padding: 15px;
     }
 
     #Lista_horizontal {
-        grid-auto-flow: row; /* Alinha o menu em formato vertical */
+        grid-auto-flow: column; /* Alinha o menu em formato vertical */
         justify-content: center;
-    }
-
-    .news {
-        grid-template-columns: 1fr; /* 2 colunas de notícias */
-    }
-
-    .historico {
-        grid-template-columns: 1fr; /* Histórico com 2 colunas */
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .Navegação {
-        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
-        justify-content: center;
-        padding: 10px;
-    }
-
-    #Lista_horizontal {
-        grid-template-columns: 1fr; /* Menu em formato de lista */
-        justify-content: center;
+        padding: 0;
+        margin: 0;
+        width: 100%; /* Garante que a lista ocupe todo o espaço disponível */
     }
 
     .news {
@@ -118,29 +128,18 @@ h1 {
 
     .historico {
         grid-template-columns: 1fr; /* Histórico com 1 coluna */
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    body {
-        font-size: 14px; /* Ajuste no tamanho de fonte */
+        gap: 5px;
+        margin: 5px;
     }
 
-    .Navegação {
-        grid-template-columns: 1fr; /* Coluna única em telas bem pequenas */
+    .imagem_autora {
+        display: grid;
         justify-content: center;
-    }
+        align-items: center;
+        margin: auto;
+        width: 100%; /* Ocupa 100% da largura do bloco pai */
+        height: auto; /* Mantém a proporção da imagem */
 
-    #Lista_horizontal {
-        grid-template-columns: 1fr; /* Formato de lista em telas pequenas */
-        justify-content: center;
-    }
 
-    .news {
-        grid-template-columns: 1fr; /* 1 coluna para as notícias */
-    }
-
-    .historico {
-        grid-template-columns: 1fr; /* Histórico com 1 coluna */
     }
 }
