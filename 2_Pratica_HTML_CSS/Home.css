@@ -1,79 +1,146 @@
+/* Estilos gerais */
 body {
     font-family: 'Courier New', Courier, monospace;
     background-image: url(imagens/297.jpg);
-
+    margin: 0;
+    padding: 0;
 }
 
-h1{
+h1 {
     display: grid;
     justify-content: center;
-
+    margin: 20px 0;
 }
 
-.Navegação {    
+/* Navegação */
+.Navegação {
     display: grid;
+    grid-template-columns: 1fr 3fr; /* Define a navegação com um layout de duas colunas */
+    background-color: beige;
+    padding: 10px 20px;
+    align-items:center;
     justify-content: end;
-    background-color:beige;
-
 }
 
 #Lista_horizontal {
-    display: inline-flex;
-    flex-direction: row;
+    display: grid;
+    grid-auto-flow: column; /* Cria um layout horizontal para o menu */
     justify-content: space-around;
     list-style-type: none;
-    width: 400px;
-
+    margin: 0;
+    padding: 20px;
 }
 
+/* Seção de notícias */
 .news {
-
     display: grid;
-    grid-template-columns: repeat(3, 600px);
-    justify-content: space-evenly;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 100px; /* Espaço entre os artigos */
+    margin: 20px;
 }
 
 .Artigo {
-
     background-color: antiquewhite;
+    padding: 15px;
     font-family: "Edu AU VIC WA NT Guides", cursive;
-    font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
 }
 
+/* Imagem centralizada */
 .imagem_centro {
-
-    display:block;
+    display: block;
     margin: auto;
+    width: 100%; /* Ocupa 100% da largura do bloco pai */
+    height: auto; /* Mantém a proporção da imagem */
 }
 
+/* Histórico de artigos */
 .historico {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 100px;
-
-
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin: 20px;
+    align-items: start;
 }
 
+/* Título da autora */
 .autora_titulo {
     display: grid;
     justify-content: center;
     background-color: antiquewhite;
-
+    padding: 15px;
 }
 
+.autora {
+
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+/* Media Queries para telas menores */
+@media only screen and (max-width: 1024px) {
+    .Navegação {
+        grid-template-columns: 1fr; /* Coluna única em telas menores */
+        justify-content: center;
+        padding: 15px;
+    }
+
+    #Lista_horizontal {
+        grid-auto-flow: row; /* Alinha o menu em formato vertical */
+        justify-content: center;
+    }
+
+    .news {
+        grid-template-columns: 1fr; /* 2 colunas de notícias */
+    }
+
+    .historico {
+        grid-template-columns: 1fr; /* Histórico com 2 colunas */
+    }
+}
 
 @media only screen and (max-width: 768px) {
-    body{ 
-        font-family: 'Courier New', Courier, monospace;
-        background-image: url(imagens/297.jpg);
+    .Navegação {
+        grid-template-columns: 1fr; /* Coluna única para telas pequenas */
+        justify-content: center;
+        padding: 10px;
     }
-    .Navegação {    
-        display: flex;
-        flex-direction: column;
-        background-color:beige;
 
-    
+    #Lista_horizontal {
+        grid-template-columns: 1fr; /* Menu em formato de lista */
+        justify-content: center;
+    }
+
+    .news {
+        grid-template-columns: 1fr; /* 1 coluna de notícias */
+    }
+
+    .historico {
+        grid-template-columns: 1fr; /* Histórico com 1 coluna */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: 14px; /* Ajuste no tamanho de fonte */
+    }
+
+    .Navegação {
+        grid-template-columns: 1fr; /* Coluna única em telas bem pequenas */
+        justify-content: center;
+    }
+
+    #Lista_horizontal {
+        grid-template-columns: 1fr; /* Formato de lista em telas pequenas */
+        justify-content: center;
+    }
+
+    .news {
+        grid-template-columns: 1fr; /* 1 coluna para as notícias */
+    }
+
+    .historico {
+        grid-template-columns: 1fr; /* Histórico com 1 coluna */
+    }
 }
