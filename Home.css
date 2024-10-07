@@ -51,6 +51,8 @@ h1 {
 .imagem_centro {
     display: block;
     margin: auto;
+    width: 100%; /* Ocupa 100% da largura do bloco pai */
+    height: auto; /* Mantém a proporção da imagem */
 }
 
 /* Histórico de artigos */
